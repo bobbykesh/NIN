@@ -56,22 +56,37 @@
   .details-table td:last-child {
     color: #333;
   }
+  .input-field {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
   .button-container {
     margin-top: 20px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
   }
-  .confirm-btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #28a745;
-    color: white;
+  .btn {
+    padding: 12px 20px;
     border: none;
     border-radius: 4px;
     font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s;
   }
-  .confirm-btn:hover {
+  .generate-btn {
+    background-color: #007bff;
+    color: white;
+  }
+  .generate-btn:hover {
+    background-color: #0056b3;
+  }
+  .download-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  .download-btn:hover {
     background-color: #218838;
   }
 </style>
@@ -81,50 +96,66 @@
 <div class="container">
   <div class="header">
     <h3>Your Personal Details</h3>
-    <p>This information has been retrieved from your NIN record and cannot be edited. Your passport will be printed with this information. If all the information is correct, then click on the <strong>Confirm & Continue</strong> button OR if you want to change any information then you will need to get it changed from your NIN record.</p>
+    <p>Please enter your personal details below. After entering your information, click the "Generate" button to see a preview, then click "Download" to save your file.</p>
   </div>
   
   <div class="table-container">
     <table class="details-table">
       <tr>
         <td>First Name</td>
-        <td>TAIWO</td>
+        <td><input type="text" id="firstName" class="input-field" placeholder="Enter First Name"></td>
       </tr>
       <tr>
         <td>Middle Name</td>
-        <td>SELINA</td>
+        <td><input type="text" id="middleName" class="input-field" placeholder="Enter Middle Name"></td>
       </tr>
       <tr>
         <td>Last Name</td>
-        <td>ADU</td>
+        <td><input type="text" id="lastName" class="input-field" placeholder="Enter Last Name"></td>
       </tr>
       <tr>
         <td>Date of Birth</td>
-        <td>16-03-1993</td>
+        <td><input type="text" id="dob" class="input-field" placeholder="DD-MM-YYYY"></td>
       </tr>
       <tr>
         <td>Gender</td>
-        <td>FEMALE</td>
+        <td><input type="text" id="gender" class="input-field" placeholder="Enter Gender"></td>
       </tr>
       <tr>
         <td>Marital Status</td>
-        <td></td>
+        <td><input type="text" id="maritalStatus" class="input-field" placeholder="Enter Marital Status"></td>
       </tr>
       <tr>
         <td>Place of Birth</td>
-        <td></td>
+        <td><input type="text" id="placeOfBirth" class="input-field" placeholder="Enter Place of Birth"></td>
       </tr>
       <tr>
         <td>Maiden Name</td>
-        <td></td>
+        <td><input type="text" id="maidenName" class="input-field" placeholder="Enter Maiden Name"></td>
       </tr>
     </table>
   </div>
   
   <div class="button-container">
-    <button class="confirm-btn">Confirm & Continue</button>
+    <button class="btn generate-btn" onclick="generateContent()">Generate</button>
+    <button class="btn download-btn" onclick="downloadContent()">Download</button>
   </div>
 </div>
+
+<script>
+function generateContent() {
+  // This function would typically create a preview of the entered data.
+  // For this simple example, we'll just show an alert.
+  const firstName = document.getElementById('firstName').value;
+  const lastName = document.getElementById('lastName').value;
+  alert(`Generating content for ${firstName} ${lastName}...`);
+}
+
+function downloadContent() {
+  // This is a placeholder. A real implementation would generate a file (e.g., PDF, image).
+  alert("Downloading file...");
+}
+</script>
 
 </body>
 </html>
