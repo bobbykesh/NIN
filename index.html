@@ -5,234 +5,243 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Personal Details</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
-  }
-  .container {
-    max-width: 600px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  }
-  .header {
-    margin-bottom: 20px;
-  }
-  .header h3 {
-    margin: 0;
-    font-size: 1.2em;
-    color: #333;
-  }
-  .header p {
-    font-size: 0.9em;
-    color: #666;
-    line-height: 1.5;
-  }
-  .content-to-download {
-    display: none; /* Initially hide the content to be downloaded */
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  }
-  .table-container {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .details-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .details-table td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-  }
-  .details-table tr:last-child td {
-    border-bottom: none;
-  }
-  .details-table td:first-child {
-    font-weight: bold;
-    background-color: #f9f9f9;
-    color: #555;
-    width: 40%;
-  }
-  .details-table td:last-child {
-    color: #333;
-  }
-  .input-field {
-    width: 95%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  .button-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .btn {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  .generate-btn {
-    background-color: #007bff;
-    color: white;
-  }
-  .generate-btn:hover {
-    background-color: #0056b3;
-  }
-  .download-btn {
-    background-color: #28a745;
-    color: white;
-  }
-  .download-btn:hover {
-    background-color: #218838;
-  }
-  .preview-section {
-    margin-top: 20px;
-  }
-  .preview-section h4 {
-    margin-bottom: 10px;
-  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  .container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  .header {
+    margin-bottom: 20px;
+  }
+  .header h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+  .header p {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.5;
+  }
+  .content-to-download {
+    display: none; /* Initially hide the content to be downloaded */
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  .table-container {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .details-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .details-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  .details-table tr:last-child td {
+    border-bottom: none;
+  }
+  .details-table td:first-child {
+    font-weight: bold;
+    background-color: #f9f9f9;
+    color: #555;
+    width: 40%;
+  }
+  .details-table td:last-child {
+    color: #333;
+  }
+  .input-field {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .generate-btn {
+    background-color: #007bff;
+    color: white;
+  }
+  .generate-btn:hover {
+    background-color: #0056b3;
+  }
+  .download-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  .download-btn:hover {
+    background-color: #218838;
+  }
+  .preview-section {
+    margin-top: 20px;
+  }
+  .preview-section h4 {
+    margin-bottom: 10px;
+  }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </head>
 <body>
 
 <div class="container">
-  <div class="header">
-    <h3>Your Personal Details</h3>
-    <p>Please enter your personal details below. After entering your information, click the "Generate" button to see a preview, then click "Download" to save your file.</p>
-  </div>
-  
-  <div class="table-container">
-    <table class="details-table">
-      <tr>
-        <td>First Name</td>
-        <td><input type="text" id="firstName" class="input-field" placeholder="Enter First Name"></td>
-      </tr>
-      <tr>
-        <td>Middle Name</td>
-        <td><input type="text" id="middleName" class="input-field" placeholder="Enter Middle Name"></td>
-      </tr>
-      <tr>
-        <td>Last Name</td>
-        <td><input type="text" id="lastName" class="input-field" placeholder="Enter Last Name"></td>
-      </tr>
-      <tr>
-        <td>Date of Birth</td>
-        <td><input type="text" id="dob" class="input-field" placeholder="DD-MM-YYYY"></td>
-      </tr>
-      <tr>
-        <td>Gender</td>
-        <td><input type="text" id="gender" class="input-field" placeholder="Enter Gender"></td>
-      </tr>
-      <tr>
-        <td>Marital Status</td>
-        <td><input type="text" id="maritalStatus" class="input-field" placeholder="Enter Marital Status"></td>
-      </tr>
-      <tr>
-        <td>Place of Birth</td>
-        <td><input type="text" id="placeOfBirth" class="input-field" placeholder="Enter Place of Birth"></td>
-      </tr>
-      <tr>
-        <td>Maiden Name</td>
-        <td><input type="text" id="maidenName" class="input-field" placeholder="Enter Maiden Name"></td>
-      </tr>
-    </table>
-  </div>
-  
-  <div class="button-container">
-    <button class="btn generate-btn" onclick="generatePreview()">Generate</button>
-    <button class="btn download-btn" onclick="downloadImage()">Download</button>
-  </div>
+  <div class="header">
+    <h3>Your Personal Details</h3>
+    <p>Please enter your personal details below. After entering your information, click the "Generate" button to see a preview, then click "Download" to save your file.</p>
+  </div>
+  
+  <div class="table-container">
+    <table class="details-table">
+      <tr>
+        <td>First Name</td>
+        <td><input type="text" id="firstName" class="input-field" placeholder="Enter First Name"></td>
+      </tr>
+      <tr>
+        <td>Middle Name</td>
+        <td><input type="text" id="middleName" class="input-field" placeholder="Enter Middle Name"></td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td><input type="text" id="lastName" class="input-field" placeholder="Enter Last Name"></td>
+      </tr>
+      <tr>
+        <td>Date of Birth</td>
+        <td><input type="text" id="dob" class="input-field" placeholder="DD-MM-YYYY"></td>
+      </tr>
+      <tr>
+        <td>Gender</td>
+        <td><input type="text" id="gender" class="input-field" placeholder="Enter Gender"></td>
+      </tr>
+      <tr>
+        <td>Marital Status</td>
+        <td><input type="text" id="maritalStatus" class="input-field" placeholder="Enter Marital Status"></td>
+      </tr>
+      <tr>
+        <td>Place of Birth</td>
+        <td><input type="text" id="placeOfBirth" class="input-field" placeholder="Enter Place of Birth"></td>
+      </tr>
+      <tr>
+        <td>Maiden Name</td>
+        <td><input type="text" id="maidenName" class="input-field" placeholder="Enter Maiden Name"></td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="button-container">
+    <button class="btn generate-btn" onclick="generatePreview()">Generate</button>
+    <button class="btn download-btn" onclick="downloadImage()">Download</button>
+  </div>
 
-  <div class="preview-section" id="previewSection" style="display: none;">
-    <h4>Preview:</h4>
-    <div id="contentToDownload" class="content-to-download">
-        <div class="header">
-            <h3>Your Personal Details</h3>
-            <p>This information has been retrieved from your NIN record and cannot be edited. Your passport will be printed with this information. If all the information is correct, then click on the <strong>Confirm & Continue</strong> button OR if you want to change any information then you will need to get it changed from your NIN record.</p>
-        </div>
-        <div class="table-container">
-            <table class="details-table">
-                <tr>
-                    <td>First Name</td>
-                    <td id="previewFirstName"></td>
-                </tr>
-                <tr>
-                    <td>Middle Name</td>
-                    <td id="previewMiddleName"></td>
-                </tr>
-                <tr>
-                    <td>Last Name</td>
-                    <td id="previewLastName"></td>
-                </tr>
-                <tr>
-                    <td>Date of Birth</td>
-                    <td id="previewDob"></td>
-                </tr>
-                <tr>
-                    <td>Gender</td>
-                    <td id="previewGender"></td>
-                </tr>
-                <tr>
-                    <td>Marital Status</td>
-                    <td id="previewMaritalStatus"></td>
-                </tr>
-                <tr>
-                    <td>Place of Birth</td>
-                    <td id="previewPlaceOfBirth"></td>
-                </tr>
-                <tr>
-                    <td>Maiden Name</td>
-                    <td id="previewMaidenName"></td>
-                </tr>
-            </table>
-        </div>
-        <div class="button-container" style="justify-content: flex-start;">
-            <button class="btn download-btn">Confirm & Continue</button>
-        </div>
-    </div>
-  </div>
+  <div class="preview-section" id="previewSection" style="display: none;">
+    <h4>Preview:</h4>
+    <div id="contentToDownload" class="content-to-download">
+        <div class="header">
+            <h3>Your Personal Details</h3>
+            <p>This information has been retrieved from your NIN record and cannot be edited. Your passport will be printed with this information. If all the information is correct, then click on the <strong>Confirm & Continue</strong> button OR if you want to change any information then you will need to get it changed from your NIN record.</p>
+        </div>
+        <div class="table-container">
+            <table class="details-table">
+                <tr>
+                    <td>First Name</td>
+                    <td id="previewFirstName"></td>
+                </tr>
+                <tr>
+                    <td>Middle Name</td>
+                    <td id="previewMiddleName"></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td id="previewLastName"></td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td id="previewDob"></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td id="previewGender"></td>
+                </tr>
+                <tr>
+                    <td>Marital Status</td>
+                    <td id="previewMaritalStatus"></td>
+                </tr>
+                <tr>
+                    <td>Place of Birth</td>
+                    <td id="previewPlaceOfBirth"></td>
+                </tr>
+                <tr>
+                    <td>Maiden Name</td>
+                    <td id="previewMaidenName"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="button-container" style="justify-content: flex-start;">
+            <button class="btn download-btn">Confirm & Continue</button>
+        </div>
+    </div>
+  </div>
 </div>
 
 <script>
 function generatePreview() {
-    document.getElementById('previewFirstName').textContent = document.getElementById('firstName').value;
-    document.getElementById('previewMiddleName').textContent = document.getElementById('middleName').value;
-    document.getElementById('previewLastName').textContent = document.getElementById('lastName').value;
-    document.getElementById('previewDob').textContent = document.getElementById('dob').value;
-    document.getElementById('previewGender').textContent = document.getElementById('gender').value;
-    document.getElementById('previewMaritalStatus').textContent = document.getElementById('maritalStatus').value;
-    document.getElementById('previewPlaceOfBirth').textContent = document.getElementById('placeOfBirth').value;
-    document.getElementById('previewMaidenName').textContent = document.getElementById('maidenName').value;
+    document.getElementById('previewFirstName').textContent = document.getElementById('firstName').value;
+    document.getElementById('previewMiddleName').textContent = document.getElementById('middleName').value;
+    document.getElementById('previewLastName').textContent = document.getElementById('lastName').value;
+    document.getElementById('previewDob').textContent = document.getElementById('dob').value;
+    document.getElementById('previewGender').textContent = document.getElementById('gender').value;
+    document.getElementById('previewMaritalStatus').textContent = document.getElementById('maritalStatus').value;
+    document.getElementById('previewPlaceOfBirth').textContent = document.getElementById('placeOfBirth').value;
+    document.getElementById('previewMaidenName').textContent = document.getElementById('maidenName').value;
 
-    document.getElementById('previewSection').style.display = 'block';
+    document.getElementById('previewSection').style.display = 'block';
 }
 
 function downloadImage() {
-    const element = document.getElementById('contentToDownload');
-    element.style.display = 'block'; // Make sure the content is visible for html2canvas
-    
-    html2canvas(element, { scale: 2 }).then(canvas => {
-        const link = document.createElement('a');
-        link.download = 'personal_details.png';
-        link.href = canvas.toDataURL('image/png');
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        element.style.display = 'none'; // Hide it again after download
-    });
+    const element = document.getElementById('contentToDownload');
+    
+    // Set the background image for the element before capturing
+    element.style.backgroundImage = 'url("bg-1.png")';
+    element.style.backgroundSize = 'cover';
+    element.style.backgroundPosition = 'center';
+    element.style.backgroundRepeat = 'no-repeat';
+    
+    element.style.display = 'block'; // Make sure the content is visible for html2canvas
+    
+    html2canvas(element, { scale: 2 }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'personal_details.png';
+        link.href = canvas.toDataURL('image/png');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        // Hide it and remove the temporary background after download
+        element.style.display = 'none';
+        element.style.backgroundImage = 'none';
+    });
 }
 </script>
 
